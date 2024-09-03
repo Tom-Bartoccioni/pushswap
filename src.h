@@ -6,7 +6,7 @@
 /*   By: tbartocc <tbartocc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/29 13:57:26 by tbartocc          #+#    #+#             */
-/*   Updated: 2024/09/02 14:04:53 by tbartocc         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:23:40 by tbartocc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	opti_rotate(t_lst *cheapest, t_lst **lst_a, t_lst **lst_b);
 void	ft_free_lst(t_lst *lst);
 void	ft_free_tab(char **tab);
 void	ft_free_tab_lst_exit(char **tab, t_lst *lst);
-t_lst	*parsing(char **tab, t_lst *lst_a);
+t_lst	*parsing(char **tab, t_lst *lst_a, int k);
 char	*get_next_line(int fd);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: tbartocc <tbartocc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/02 12:50:57 by tbartocc          #+#    #+#             */
-/*   Updated: 2024/09/02 17:35:13 by tbartocc         ###   ########.fr       */
+/*   Updated: 2024/09/03 15:24:30 by tbartocc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,10 @@ void	op(char *op, t_lst **lst_a, t_lst **lst_b)
 	ft_putchar('\n');
 }
 
-t_lst	*parsing(char **tab, t_lst *lst_a)
+t_lst	*parsing(char **tab, t_lst *lst_a, int k)
 {
 	int	j;
-	int	k;
 
-	k = -1;
 	while (tab[++k])
 	{
 		j = -1;
@@ -56,7 +54,8 @@ t_lst	*parsing(char **tab, t_lst *lst_a)
 		{
 			if (j == 0)
 			{
-				if (!ft_isdigit(tab[k][j]) && tab[k][j] != '-')
+				if (!ft_isdigit(tab[k][j]) && tab[k][j] != '-'
+					|| !ft_strcmp(tab[k], "-"))
 					ft_free_tab_lst_exit(tab, lst_a);
 			}
 			else if (!ft_isdigit(tab[k][j]))
