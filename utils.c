@@ -6,7 +6,7 @@
 /*   By: tbartocc <tbartocc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/26 14:13:58 by tbartocc          #+#    #+#             */
-/*   Updated: 2024/08/26 15:45:24 by tbartocc         ###   ########.fr       */
+/*   Updated: 2024/09/02 14:04:53 by tbartocc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,52 +29,32 @@ int	is_duplicate(t_lst *lst, int number)
 	return (0);
 }
 
-void	rotation_a(t_lst **lst_a, t_lst **lst_b, int cost_a)
+void	ft_free_lst(t_lst *lst)
 {
-	if (cost_a <= ft_lst_size(*lst_a) / 2)
-		while (cost_a-- > 0)
-			op("ra", lst_a, lst_b);
-	else
+	t_lst	*tmp;
+
+	while (lst && lst->next)
 	{
-		cost_a = ft_lst_size(*lst_a) - cost_a;
-		while (cost_a-- > 0)
-			op("rra", lst_a, lst_b);
+		lst = lst->next;
+		tmp = lst->prev;
+		free(tmp);
 	}
+	free(lst);
 }
 
-void	rotation_b(t_lst **lst_a, t_lst **lst_b, int cost_b)
+void	ft_free_tab(char **tab)
 {
-	if (cost_b <= ft_lst_size(*lst_b) / 2)
-		while (cost_b-- > 0)
-			op("rb", lst_a, lst_b);
-	else
-	{
-		cost_b = ft_lst_size(*lst_b) - cost_b;
-		while (cost_b-- > 0)
-			op("rrb", lst_a, lst_b);
-	}
+	int	i;
+
+	i = -1;
+	while (tab[++i])
+		free(tab[i]);
+	free(tab);
 }
 
-int	find_position_in_second_lst(t_lst *element, t_lst *lst_b)
+void	ft_free_tab_lst_exit(char **tab, t_lst *lst)
 {
-	int		position;
-	t_lst	*current;
-
-	position = 0;
-	current = lst_b;
-	if (!current)
-		return (0);
-	while (current && current->next)
-	{
-		if (element->number > current->number
-			&& element->number < current->next->number)
-			return (position);
-		position++;
-		current = current->next;
-	}
-	if (element->number > current->number)
-	{
-		return (position);
-	}
-	return (position);
+	ft_free_tab(tab);
+	ft_free_lst(lst);
+	error();
 }
