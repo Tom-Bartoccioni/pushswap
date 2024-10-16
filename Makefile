@@ -6,7 +6,7 @@
 #    By: tbartocc <tbartocc@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/09/02 15:18:00 by tbartocc          #+#    #+#              #
-#    Updated: 2024/09/03 14:30:50 by tbartocc         ###   ########.fr        #
+#    Updated: 2024/10/16 12:43:58 by tbartocc         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,7 +81,7 @@ visualizer:
 	@cd push_swap_visualizer/build && make
 
 checker:
-	@wget https://cdn.intra.42.fr/document/document/27319/checker_linux
+	@wget https://cdn.intra.42.fr/document/document/28289/checker_linux
 	@chmod 777 checker_linux
 	
 end:
