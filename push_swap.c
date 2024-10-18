@@ -6,7 +6,7 @@
 /*   By: tbartocc <tbartocc@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/14 15:18:46 by tbartocc          #+#    #+#             */
-/*   Updated: 2024/10/16 13:06:13 by tbartocc         ###   ########.fr       */
+/*   Updated: 2024/10/18 17:38:19 by tbartocc         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ int	main(int ac, char **av)
 	k = -1;
 	while (++i < ac)
 		lst_a = parsing(ft_split(av[i], ' '), lst_a, k);
+	if (ft_lst_size(lst_a) > 1 && !is_sorted(lst_a) && ft_lst_size(lst_a) == 2)
+		op("ra", &lst_a, &lst_b);
 	if (ft_lst_size(lst_a) > 1 && !is_sorted(lst_a))
 		sort(&lst_a, &lst_b);
 	ft_free_lst(lst_a);
